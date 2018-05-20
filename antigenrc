@@ -1,0 +1,31 @@
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+antigen bundles <<EOBUNDLES
+  # zsh syntax highlighting
+  zdharma/fast-syntax-highlighting
+
+  # guess what to install when unknown command is used
+  command-not-found
+
+  # git aliases and functions
+  git
+
+  # git autocomplete
+  git-extras
+
+  # a few common and useful aliases
+  common-aliases
+
+  # awesome aliases for mvn
+  mvn
+
+  # a few helpful aliases for tmux
+  tmux
+EOBUNDLES
+
+# Load zsh theme.
+antigen theme blinks
+
+# Run it.
+antigen apply

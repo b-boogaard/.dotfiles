@@ -1,0 +1,2 @@
+EXCLUDES="README.md LICENSE bash_profile profile"
+DOTFILES_DIRS="$HOME/.dotfiles-local $HOME/.dotfiles"

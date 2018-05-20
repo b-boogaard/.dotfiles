@@ -1,0 +1,20 @@
+[core]
+  excludesfile = ~/.gitignore
+  editor = vim
+[init]
+  templatedir = ~/.git_template
+[push]
+  default = simple
+[http]
+  cookiefile = ~/.gitcookies
+[merge]
+  tool = vimdiff3
+  conflictstyle = diff3
+[mergetool]
+  prompt = false
+[diff]
+  tool = vimdiff3
+[rerere]
+  enabled = true
+[include]
+  path = ~/.gitconfig.local

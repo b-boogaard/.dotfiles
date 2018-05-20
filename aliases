@@ -1,0 +1,14 @@
+# Git
+alias glc="git ls-files -u"
+alias git-lsu="git ls-files -u | cut -f 2 | sort -u"
+alias git-tree="git log --oneline --graph --color --all --decorate"
+
+# Emacs
+alias ed="emacs --daemon"
+alias ec="emacsclient -c"
+alias e="emacsclient -t"
+alias check-emacs="ps aux | grep emacs"
+
+# Other
+alias iso='date -u +"%Y-%m-%dT%H:%M:%SZ" | pbcopy'
+alias docker-eval='eval "$(docker-machine env default)"'
