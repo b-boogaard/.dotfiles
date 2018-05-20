@@ -15,6 +15,9 @@ export TERM=xterm-256color
 # bin paths
 export PATH=/opt/chefdk/bin:$PATH
 export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/Cellar/openresty/1.13.6.1/nginx/sbin:$PATH
+export PATH=/usr/local/Cellar/openresty/1.13.6.1/luajit/bin:$PATH
+export PATH=/usr/local/go/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=$GRADLE_HOME/bin:$PATH
 export PATH=$SCALA_HOME/bin:$PATH
@@ -22,6 +25,11 @@ export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.jenv/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.rbenv/bin:$PATH
+
+# Only add path to gnu-tar if it exists
+if which gtar &>/dev/null ; then
+    export PATH=/usr/local/opt/gnu-tar/libexec/gnubin:$PATH
+fi
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then

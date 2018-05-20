@@ -1,3 +1,8 @@
+# Load custom functions
+for function in ~/.zsh/functions/*; do
+    source $function
+done
+
 # Load powerline
 . $POWERLINE_HOME/powerline/bindings/zsh/powerline.zsh
 

@@ -1,0 +1,16 @@
+# Starts an interactive rebase between the current branch and a target branch
+# starting from the closest common ancestor. If no target branch is provided
+# master is assumed.
+function rebase {
+  if [ -z "$1" ]; then
+    branch='master'
+  else
+    branch="$1"
+  fi
+
+  commit_sha="$(git merge-base --fork-point $branch)"
+
+  echo "Executing: git rebase -i $commit_sha"
+
+  git rebase -i "$commit_sha"
+}

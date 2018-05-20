@@ -1,20 +1,23 @@
 [core]
-  excludesfile = ~/.gitignore
-  editor = vim
+	excludesfile = ~/.gitignore
+	editor = vim
 [init]
-  templatedir = ~/.git_template
+	templatedir = ~/.git_template
 [push]
-  default = simple
+	default = simple
 [http]
-  cookiefile = ~/.gitcookies
+	cookiefile = ~/.gitcookies
 [merge]
-  tool = vimdiff3
-  conflictstyle = diff3
+	tool = vimdiff3
+	conflictstyle = diff3
 [mergetool]
-  prompt = false
+	prompt = false
 [diff]
-  tool = vimdiff3
+	tool = vimdiff3
 [rerere]
-  enabled = true
+	enabled = true
+[pull]
+	rebase = true
+	ff = only
 [include]
-  path = ~/.gitconfig.local
+	path = ~/.gitconfig.local

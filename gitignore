@@ -63,6 +63,9 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 
+# RSpec
+.rspec_status
+
 # Environment normalisation
 /.bundle
 /vendor/bundle
@@ -288,3 +291,13 @@ Session.vim
 ## JDEE
 prj.el
 ..*
+
+.rigmarole_project
+
+docs-dictionary-*
+
+# org files
+*.org
+**/*.org
+
+.travis/**/*
