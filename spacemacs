@@ -47,8 +47,6 @@ values."
      (javascript :variables javascript-disable-tern-port-files nil)
      lua
      markdown
-     ;; (org :variables
-     ;;      org-enable-github-support t)
      nginx
      python
      racket

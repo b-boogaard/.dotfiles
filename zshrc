@@ -2,7 +2,7 @@
 . $POWERLINE_HOME/powerline/bindings/zsh/powerline.zsh
 
 # Create ~/.antigen/ if it does not exist
-[[ -d ~/.antigen ]] && mkdir ~/.antigen
+mkdir -p ~/.antigen
 
 # Source antigen zsh plugin manager.
 # https://github.com/zsh-users/antigen

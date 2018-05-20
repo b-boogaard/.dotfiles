@@ -1,7 +1,7 @@
 # System environment variables
 export ARCHFLAGS="-arch x86_64"
 export GOPATH=$HOME/go
-export GRADLE_HOME=/Users/bv031773/bin/gradle-2.9
+export GRADLE_HOME=$HOME/bin/gradle-2.9
 export LANG=en_US.UTF-8
 export MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=512m"
 export NODE_PATH=/usr/local/bin/node
