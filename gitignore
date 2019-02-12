@@ -77,7 +77,6 @@ pickle-email-*.html
 /.config
 /coverage/
 /InstalledFiles
-/pkg/
 /spec/reports/
 /test/tmp/
 /test/version_tmp/
@@ -301,3 +300,9 @@ docs-dictionary-*
 **/*.org
 
 .travis/**/*
+
+.vscode/*
+# !.vscode/settings.json
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json

@@ -46,7 +46,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'vim-scripts/paredit.vim', { 'for': ['clojure', 'scheme', 'common-lisp'] }
 Plug 'vim-scripts/tComment'
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+" Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
 if g:has_async
   Plug 'w0rp/ale'

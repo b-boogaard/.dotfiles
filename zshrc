@@ -6,15 +6,11 @@ done
 # Load powerline
 . $POWERLINE_HOME/powerline/bindings/zsh/powerline.zsh
 
-# Create ~/.antigen/ if it does not exist
-mkdir -p ~/.antigen
+# Load and configure zgen if it exists
+if [ -f $HOME/.zgen/zgen.zsh ] ; then
+   source "${HOME}/.zgenrc"
+fi
 
-# Source antigen zsh plugin manager.
-# https://github.com/zsh-users/antigen
-source /usr/local/share/antigen/antigen.zsh
-
-# Load antigen configuration.
-antigen init $HOME/.antigenrc
 
 # Load pyenv if available
 if which pyenv &>/dev/null ; then
@@ -36,8 +32,15 @@ if which hub &>/dev/null ; then
     eval "$(hub alias -s)"
 fi
 
+# Load goenv if available
+if which goenv &>/dev/null ; then
+  eval "$(goenv init -)"
+fi
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # Aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
+
+source $HOME/.zprofile

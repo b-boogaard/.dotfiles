@@ -6,7 +6,11 @@ alias check-emacs="ps aux | grep emacs"
 
 # Other
 alias iso='date -u +"%Y-%m-%dT%H:%M:%SZ" | pbcopy'
+
+# Docker
+alias docker-clean='docker rmi --force $(docker images -f "dangling=true" -q)'
 alias docker-eval='eval "$(docker-machine env default)"'
+alias check-docker='ls -lah ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2'
 
 # Local aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
