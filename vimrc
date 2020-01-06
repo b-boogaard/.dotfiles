@@ -8,6 +8,7 @@ set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
 set noswapfile
+set noundofile
 set history=50
 set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
@@ -76,6 +77,10 @@ endfunc
 
 " Deletes Trailing Whitespace on Save
 autocmd BufWrite *.* :call DeleteTrailingWS()
+
+" Set the width of git commit messages to 72 and
+" turn on spell checking
+autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " Display whitespace as `*`
 set list

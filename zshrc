@@ -37,6 +37,11 @@ if which goenv &>/dev/null ; then
   eval "$(goenv init -)"
 fi
 
+# Load luarocks if available
+if which luarocks &>/dev/null ; then
+   eval $(luarocks path --bin)
+fi
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 

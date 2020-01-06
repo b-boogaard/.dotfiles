@@ -5,8 +5,6 @@ if [ -f $HOME/.zgen/zgen.zsh ] ; then
 
    # Check if the init script created by zgen exists
    if ! zgen saved ; then
-       echo "Creating a zgen save."
-
        zgen oh-my-zsh
 
        # zsh syntax highlighting

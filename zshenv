@@ -8,7 +8,6 @@ export NODE_PATH=/usr/local/bin/node
 export NODE_PATH=/usr/local/lib/jsctags:$NODE_PATH
 export PATH=$PATH:/Applications/Rakudo/bin:/Applications/Rakudo/share/perl6/site/bin
 export POWERLINE_HOME=/$HOME/.local/lib/python3.7/site-packages
-export RUST_SRC_PATH=$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 export SCALA_HOME=/usr/local/share/scala
 export SOLARIZED_THEME=dark
 export SSH_KEY_PATH=$HOME/.ssh/id_rsa
@@ -18,17 +17,24 @@ export TERM=xterm-256color
 export PATH=/opt/chefdk/bin:$PATH
 export PATH=/usr/local/ActivePerl-5.26/bin:$PATH
 export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/Cellar/openresty/1.13.6.1/nginx/sbin:$PATH
-export PATH=/usr/local/Cellar/openresty/1.13.6.1/luajit/bin:$PATH
+export PATH=/usr/local/Cellar/openresty/1.15.8.1/nginx/sbin:$PATH
+export PATH=/usr/local/Cellar/openresty/1.15.8.1/luajit/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=$GOPATH/bin:$PATH
 export PATH=$GRADLE_HOME/bin:$PATH
 export PATH=$SCALA_HOME/bin:$PATH
+export PATH=/Applications/CMake.app/Contents/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.jenv/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.rbenv/bin:$PATH
+export PATH=$HOME/bin:$PATH
+export PATH=/usr/local/opt/make/libexec/gnubin:$PATH
+export PATH=/usr/local/Cellar/emacs/26.2/bin:$PATH
+export PATH=/usr/local/Cellar/macvim/8.1-157/bin:$PATH
+export PATH=/usr/local/opt/openssl/bin:$PATH
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
 # Only add path to gnu-tar if it exists
 if which gtar &>/dev/null ; then

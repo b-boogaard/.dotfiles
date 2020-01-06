@@ -4,13 +4,16 @@ alias ec="emacsclient -c"
 alias e="emacsclient -t"
 alias check-emacs="ps aux | grep emacs"
 
+alias git='hub'
+
 # Other
 alias iso='date -u +"%Y-%m-%dT%H:%M:%SZ" | pbcopy'
 
 # Docker
 alias docker-clean='docker rmi --force $(docker images -f "dangling=true" -q)'
 alias docker-eval='eval "$(docker-machine env default)"'
-alias check-docker='ls -lah ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2'
+alias check-docker='ls -lah /Users/bv031773/Library/Containers/com.docker.docker/Data/vms/0/data/Docker.raw'
+alias clean-docker='rm -rf /Users/bv031773/Library/Containers/com.docker.docker/Data/vms/0/data/Docker.raw'
 
 # Local aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
