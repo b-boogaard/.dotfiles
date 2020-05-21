@@ -23,6 +23,9 @@ set foldnestmax=10
 set nofoldenable
 set foldmethod=syntax
 
+let g:powerline_pycmd="py3"
+let g:powerline_pyeval="py3eval"
+
 " Load powerline
 silent! python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()

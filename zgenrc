@@ -1,34 +1,38 @@
-# Check if zgen exists
-if [ -f $HOME/.zgen/zgen.zsh ] ; then
-   # Load zgen
-   source "${HOME}/.zgen/zgen.zsh"
+# Load zgen
+# Assumes zgen is available.
 
-   # Check if the init script created by zgen exists
-   if ! zgen saved ; then
-       zgen oh-my-zsh
+source "${ZGEN_HOME}/zgen.zsh"
 
-       # zsh syntax highlighting
-       zgen load zdharma/fast-syntax-highlighting
+# Check if the init script created by zgen exists
+if ! zgen saved ; then
 
-       # guess what to install when unknown command is used
-       zgen oh-my-zsh plugins/command-not-found
+    zgen oh-my-zsh
 
-       # git aliases and functions
-       zgen oh-my-zsh plugins/git
+    # zsh syntax highlighting
+    zgen load zdharma/fast-syntax-highlighting
 
-       # git autocomplete
-       zgen oh-my-zsh plugins/git-extras
+    # guess what to install when unknown command is used
+    zgen oh-my-zsh plugins/command-not-found
 
-       # a few common and useful aliases
-       zgen oh-my-zsh plugins/common-aliases
+    # git aliases and functions
+    zgen oh-my-zsh plugins/git
 
-       # awesome aliases for mvn
-       zgen oh-my-zsh plugins/mvn
+    # git autocomplete
+    zgen oh-my-zsh plugins/git-extras
 
-       # a few helpful aliases for tmux
-       zgen oh-my-zsh plugins/tmux
+    # a few common and useful aliases
+    zgen oh-my-zsh plugins/common-aliases
 
-       # Load zsh theme.
-       zgen oh-my-zsh themes/blinks
-   fi
+    # awesome aliases for mvn
+    zgen oh-my-zsh plugins/mvn
+
+    # a few helpful aliases for tmux
+    zgen oh-my-zsh plugins/tmux
+
+    # Load zsh theme.
+    zgen oh-my-zsh themes/blinks
+
+    zgen save
 fi
+
+zgen-oh-my-zsh

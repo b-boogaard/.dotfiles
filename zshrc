@@ -1,17 +1,3 @@
-# Load custom functions
-for function in ~/.zsh/functions/*; do
-    source $function
-done
-
-# Load powerline
-. $POWERLINE_HOME/powerline/bindings/zsh/powerline.zsh
-
-# Load and configure zgen if it exists
-if [ -f $HOME/.zgen/zgen.zsh ] ; then
-   source "${HOME}/.zgenrc"
-fi
-
-
 # Load pyenv if available
 if which pyenv &>/dev/null ; then
     eval "$(pyenv init -)"
@@ -42,10 +28,30 @@ if which luarocks &>/dev/null ; then
    eval $(luarocks path --bin)
 fi
 
+powerline-daemon -q
+
+# Load powerline
+. $POWERLINE_HOME/powerline/bindings/zsh/powerline.zsh
+
+export LSCOLORS=exfxfeaeBxxehehbadacea
+
+# Load custom functions
+for function in ~/.zsh/functions/*; do
+    source $function
+done
+
+# Load powerline
+. $POWERLINE_HOME/powerline/bindings/zsh/powerline.zsh
+
+# Load and configure zgen if it exists
+source $HOME/.zgenrc
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # Aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
-source $HOME/.zprofile
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

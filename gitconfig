@@ -2,7 +2,7 @@
 	excludesfile = ~/.gitignore
 	editor = vim
 [init]
-	templatedir = ~/.gittemplates/
+	templatedir = ~/.git_templates/
 [push]
 	default = simple
 [http]
@@ -24,7 +24,10 @@
 [user]
 	name = Brian van de Boogaard
 	email = Brian.vandeBoogaard@Cerner.com
+	signingkey = 22A9C0F368840796
 [hub]
 	host = github.cerner.com
 [gpg]
 	program = gpg
+[commit]
+	gpgsign = true
