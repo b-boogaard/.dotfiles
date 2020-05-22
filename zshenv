@@ -55,5 +55,3 @@ fi
 
 # Source local config
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"

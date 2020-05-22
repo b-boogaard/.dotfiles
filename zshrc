@@ -30,9 +30,6 @@ fi
 
 powerline-daemon -q
 
-# Load powerline
-. $POWERLINE_HOME/powerline/bindings/zsh/powerline.zsh
-
 export LSCOLORS=exfxfeaeBxxehehbadacea
 
 # Load custom functions
@@ -41,7 +38,7 @@ for function in ~/.zsh/functions/*; do
 done
 
 # Load powerline
-. $POWERLINE_HOME/powerline/bindings/zsh/powerline.zsh
+source $POWERLINE_HOME/powerline/bindings/zsh/powerline.zsh
 
 # Load and configure zgen if it exists
 source $HOME/.zgenrc
