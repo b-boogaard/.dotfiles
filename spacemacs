@@ -55,7 +55,14 @@ This function should only modify configuration layer settings."
      nginx
      (org :variables
           org-projectile-file "~/org/todos.org"
-          org-enable-bootstrap-support t)
+          org-enable-bootstrap-support t
+          org-enable-org-journal-support t
+          org-journal-dir "~/org"
+          org-journal-file-format "%Y-%m-%d.org"
+          org-journal-date-prefix "#+TITLE: "
+          org-journal-date-format "%A, %B, %d %Y"
+          org-journal-time-prefix "* "
+          org-journal-time-format " ")
      org-roam
      python
      ruby
@@ -79,7 +86,7 @@ This function should only modify configuration layer settings."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(yasnippet-snippets)
+   dotspacemacs-additional-packages '(yasnippet-snippets org-roam-bibtex helm)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -503,41 +510,64 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
-  (setq org-startup-indented t)
-  (require 'org-roam)
-  ;; Define some emac style bindings so that org-roam basic functions
-  ;; can be used while in insert mode.
-  (define-key org-roam-mode-map (kbd "C-c n l") #'org-roam)
-  (define-key org-roam-mode-map (kbd "C-c n f") #'org-roam-find-file)
-  (define-key org-roam-mode-map (kbd "C-c n j") #'org-roam-jump-to-index)
-  (define-key org-roam-mode-map (kbd "C-c n b") #'org-roam-switch-to-buffer)
-  (define-key org-roam-mode-map (kbd "C-c n g") #'org-roam-graph)
-  (define-key org-mode-map (kbd "C-c n i") #'org-roam-insert)
-  (org-roam-mode +1)
-  (setq org-roam-directory "~/org/")
-  (setq org-roam-link-title-format "\\ddag %s \\ddag")
-  (setq org-roam-completion-system 'helm)
-  (setq org-roam-capture-templates
-        '(("d" "default" plain (function org-roam--capture-get-point)
-           "%?"
-           :file-name "%(format-time-string \"%Y-%m-%d--%H-%M-%SZ--${slug}\" (current-time) t)"
-           :head "#+TITLE: ${title}\n"
-           :unnarrowed t)))
-
   (with-eval-after-load 'org
+    (setq org-agenda-files '("~/org"))
+    (setq org-journal-enable-agenda-integration t)
     (setq spaceline-org-clock-p t)
     (setq org-pretty-entities t)
+    (setq org-fontify-emphasized-text t)
     (setq org-todo-keywords
           '((sequence "TODO(t)" "ACTIVE(a)" "|" "DONE(d)" "BLOCKED(b)" "CANCELED(c)")))
     (setq org-tags-alist
           '((sequence "home(h)" "work(w)" "@jira(j)" "@email(e)" "@github(g)")))
     (setq org-capture-templates
           '(("t" "Todo" entry (file+headline "~/org/todos.org" "Tasks")
+             "* TODO %?\n  %i")
+            ("c" "Todo w/ Context" entry (file+headline "~/org/todos.org" "Tasks")
              "* TODO %?\n  %i\n %a")
             ("n" "Notes" entry (file+datetree "~/org/notes.org")
              "* %?\nEntered on %U\n  %i\n %a\n")))
+
+    (setq org-startup-indented t)
+    (require 'org-roam)
+    ;; Define some emac style bindings so that org-roam basic functions
+    ;; can be used while in insert mode.
+    (define-key org-roam-mode-map (kbd "C-c n l") #'org-roam)
+    (define-key org-roam-mode-map (kbd "C-c n f") #'org-roam-find-file)
+    (define-key org-roam-mode-map (kbd "C-c n j") #'org-roam-jump-to-index)
+    (define-key org-roam-mode-map (kbd "C-c n b") #'org-roam-switch-to-buffer)
+    (define-key org-roam-mode-map (kbd "C-c n g") #'org-roam-graph)
+    (define-key org-mode-map (kbd "C-c n i") #'org-roam-insert)
+    (org-roam-mode +1)
+    (setq org-roam-directory "~/org/")
+    (setq org-roam-link-title-format "\\ddag %s \\ddag")
+    (setq org-roam-completion-system 'helm)
+    (setq org-roam-capture-templates
+          '(("d" "default" plain (function org-roam--capture-get-point)
+             "%?"
+             :file-name "%(format-time-string \"${slug}\" (current-time) t)"
+             :head "#+TITLE: ${title}\n"
+             :unnarrowed t
+             :immediate-finish t)
+            ("n" "normal" plain (function org-roam--capture-get-point)
+             "%?"
+             :file-name "%(format-time-string \"${slug}\" (current-time) t)"
+             :head "#+TITLE: ${title}\n"
+             :unnarrowed t)
+            ("p" "person" plain (function org-roam--capture-get-point)
+             "%?"
+             :file-name "%(format-time-string \"${slug}\" (current-time) t)"
+             :head "#+TITLE: ${title}\n :PROPERTIES:\n:Email:\n:Address:\n:Phone Number:\n:END:\n"
+             :unnarrowed t)))
+
     (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+)

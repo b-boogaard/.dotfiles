@@ -34,6 +34,7 @@ export PATH=/usr/local/opt/make/libexec/gnubin:$PATH
 export PATH=/usr/local/Cellar/emacs/26.2/bin:$PATH
 export PATH=/usr/local/Cellar/macvim/8.1-161/bin:$PATH
 export PATH=/usr/local/opt/openssl/bin:$PATH
+export PATH=/usr/local/opt/sqlite/bin:$PATH
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 export PATH=/usr/local/opt/v8@3.15/bin:$PATH
 export PATH=/usr/local/bin:$PATH
