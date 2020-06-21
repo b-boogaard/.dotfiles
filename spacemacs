@@ -563,11 +563,8 @@ you should place your code here."
   (with-eval-after-load 'org-agenda
     (setq org-agenda-files '("/mnt/c/Users/brian/iCloudDrive/org/"))
     (setq org-agenda-custom-commands
-          '(("h" "House projects"
-             ((todo "TODO|ACTIVE")
-              (tags "+home+house-yard-garage")))
-            ("y" "Yard projects"
-             (tags-todo "+home+yard-house-garage")))))
+          '(("h" tags-todo "+home+house-yard-garage")
+            ("y" tags-todo "+home+yard-house-garage"))))
 
   ;; Org configuration that shouldn't be done until after org is loaded.
   (with-eval-after-load 'org
