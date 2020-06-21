@@ -21,3 +21,13 @@
 	ff = only
 [include]
 	path = ~/.gitconfig.local
+[user]
+	email = brian.boogaard@gmail.com
+	name = Brian van de Boogaard
+	signingkey = 3D3917B580C15C461D652564F56DA7D476635AC2
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
+[github]
+	user = b-boogaard

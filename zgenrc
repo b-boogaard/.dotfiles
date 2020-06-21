@@ -32,5 +32,7 @@ if [ -f $HOME/.zgen/zgen.zsh ] ; then
 
        # Load zsh theme.
        zgen oh-my-zsh themes/blinks
+
+       zgen save
    fi
 fi

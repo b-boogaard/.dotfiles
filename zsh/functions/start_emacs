@@ -1,0 +1,9 @@
+# Starts emacs in x-windows.
+function start_emacs {
+
+  export DISPLAY=:0
+  export LIBGL_ALWAYS_INDIRECT=1
+# OPTIONAL Set the keyboard layout to US
+  setxkbmap -layout us
+  setsid emacs
+}

@@ -4,17 +4,21 @@ let mapleader=","
 " Encode files as UTF-8
 set encoding=utf-8
 
-set backspace=2   " Backspace deletes like most programs in insert mode
-set nobackup
+set autoindent    " copy indent from current line
+set autoread      " automatically :read open files again when modified externally
+set autowrite     " automatically :write before running commands
+set backspace=2   " backspace deletes like most programs in insert mode
+set nobackup      " don't keep backup files
 set nowritebackup
 set noswapfile
 set history=50
 set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
+set smartindent   " smart indenting when starting a new line
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
-set autowrite     " Automatically :write before running commands
 set modelines=0
+set nowrap        " do not wrap lines
 
 " Enable Folding
 set foldlevel=1
@@ -22,10 +26,14 @@ set foldnestmax=10
 set nofoldenable
 set foldmethod=syntax
 
-" Load powerline
-silent! python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
+if !has("nvim")
+  " Load powerline
+  let g:powerline_pycmd="py3"
+  let g:powerline_pyeval="py3eval"
+  silent! python3 from powerline.vim import setup as powerline_setup
+  python3 powerline_setup()
+  python3 del powerline_setup
+endif
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -49,10 +57,6 @@ set shiftround
 " Linebreak on 100 characters
 set lbr
 set tw=100
-
-set ai "Auto indent
-set si "Smart indent
-set wrap "Wrap lines
 
 " Add line at 100 characters
 set colorcolumn=100
@@ -117,8 +121,8 @@ syntax enable
 syntax on
 
 " Use solarized dark
-colorscheme solarized
-set background=dark
+" colorscheme solarized
+" set background=dark
 
 " Vim-Json
 let g:vim_json_syntax_conceal=0
@@ -175,9 +179,11 @@ set gdefault
 " * 1 - Break lines before one letter words instead of after
 set formatoptions=qrn1
 
-" Enable mouse use in all modes
-set mouse=a
-set ttymouse=xterm2
+" Enable mouse use in all modes if not running nvim.
+if !has('nvim')
+  set mouse=a
+  set ttymouse=xterm2
+endif
 
 " Disable arrow keys
 nnoremap <up> <nop>
@@ -188,6 +194,12 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
+
+" Always change directory to the current buffer
+set autochdir
+
+" Try autochdir first - read it can be flaky this is an alternative
+" BufEnter * silent! lcd %:p:h:gs/ /\\ /
 
 " Enable rainbow parentheses for all buffers
 augroup rainbow_parentheses
@@ -221,8 +233,8 @@ let g:ctrlp_root_markers = '.cache-main, .project'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
-" Remap localleader to `-`
-let maplocalleader="-"
+" Remap localleader to `\`
+let maplocalleader='\'
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
@@ -234,7 +246,7 @@ map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 
 " Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
+" map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " ; works like :
 nnoremap ; :
@@ -250,7 +262,7 @@ nnoremap <C-l> <C-w>l
 
 " NERDTree toggling
 map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " leader space will clear search results
 nnoremap <leader><space> :noh<cr>

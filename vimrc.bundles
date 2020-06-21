@@ -27,7 +27,6 @@ call plug#begin('~/.vim/bundle')
 " Bundles via Github repos
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
@@ -43,10 +42,11 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-unimpaired'
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'VaiN474/vim-etlua', { 'for': 'etlua' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'vim-scripts/paredit.vim', { 'for': ['clojure', 'scheme', 'common-lisp'] }
 Plug 'vim-scripts/tComment'
-" Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
 if g:has_async
   Plug 'w0rp/ale'
