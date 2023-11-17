@@ -27,9 +27,10 @@ let g:powerline_pycmd="py3"
 let g:powerline_pyeval="py3eval"
 
 " Load powerline
-silent! python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
+set rtp+=/usr/local/lib/python3.11/site-packages/powerline/bindings/vim
+" silent! python3 from powerline.vim import setup as powerline_setup
+" python3 powerline_setup()
+" python3 del powerline_setup
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.

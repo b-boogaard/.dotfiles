@@ -27,7 +27,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-ask-for-lazy-installation t
 
    ;; List of additional paths where to look for configuration layers.
-   ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
+   ;; Paths must have a trailing slash (i.e. "~/.mycontribs/")
    dotspacemacs-configuration-layer-path '()
 
    ;; List of configuration layers to load.
@@ -53,17 +53,18 @@ This function should only modify configuration layer settings."
      lua
      markdown
      nginx
-     (org :variables
-          org-projectile-file "~/org/todos.org"
-          org-enable-bootstrap-support t
-          org-enable-org-journal-support t
-          org-journal-dir "~/org"
-          org-journal-file-format "%Y-%m-%d.org"
-          org-journal-date-prefix "#+TITLE: "
-          org-journal-date-format "%A, %B, %d %Y"
-          org-journal-time-prefix "* "
-          org-journal-time-format " ")
-     org-roam
+     org
+     ;; (org :variables
+     ;;      org-project-capture-projects-file "~/org/todos.org"
+     ;;      org-enable-bootstrap-support t
+     ;;      org-enable-org-journal-support t
+     ;;      org-journal-dir "~/org"
+     ;;      org-journal-file-format "%Y-%m-%d.org"
+     ;;      org-journal-date-prefix "#+TITLE: "
+     ;;      org-journal-date-format "%A, %B, %d %Y"
+     ;;      org-journal-time-prefix "* "
+     ;;      org-journal-time-format " ")
+     ;; org-roam
      python
      ruby
      rust
@@ -529,36 +530,6 @@ you should place your code here."
              "* %?\nEntered on %U\n  %i\n %a\n")))
 
     (setq org-startup-indented t)
-    (require 'org-roam)
-    ;; Define some emac style bindings so that org-roam basic functions
-    ;; can be used while in insert mode.
-    (define-key org-roam-mode-map (kbd "C-c n l") #'org-roam)
-    (define-key org-roam-mode-map (kbd "C-c n f") #'org-roam-find-file)
-    (define-key org-roam-mode-map (kbd "C-c n j") #'org-roam-jump-to-index)
-    (define-key org-roam-mode-map (kbd "C-c n b") #'org-roam-switch-to-buffer)
-    (define-key org-roam-mode-map (kbd "C-c n g") #'org-roam-graph)
-    (define-key org-mode-map (kbd "C-c n i") #'org-roam-insert)
-    (org-roam-mode +1)
-    (setq org-roam-directory "~/org/")
-    (setq org-roam-link-title-format "\\ddag %s \\ddag")
-    (setq org-roam-completion-system 'helm)
-    (setq org-roam-capture-templates
-          '(("d" "default" plain (function org-roam--capture-get-point)
-             "%?"
-             :file-name "%(format-time-string \"${slug}\" (current-time) t)"
-             :head "#+TITLE: ${title}\n"
-             :unnarrowed t
-             :immediate-finish t)
-            ("n" "normal" plain (function org-roam--capture-get-point)
-             "%?"
-             :file-name "%(format-time-string \"${slug}\" (current-time) t)"
-             :head "#+TITLE: ${title}\n"
-             :unnarrowed t)
-            ("p" "person" plain (function org-roam--capture-get-point)
-             "%?"
-             :file-name "%(format-time-string \"${slug}\" (current-time) t)"
-             :head "#+TITLE: ${title}\n :PROPERTIES:\n:Email:\n:Address:\n:Phone Number:\n:END:\n"
-             :unnarrowed t)))
 
     (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))))
 

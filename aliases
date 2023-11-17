@@ -3,6 +3,8 @@ alias ed="emacs --daemon"
 alias ec="emacsclient -c"
 alias e="emacsclient -t"
 alias check-emacs="ps aux | grep emacs"
+alias dcu="docker-compose up"
+alias start-vault="aws-vault exec dev --duration=8h"
 
 alias git='hub'
 

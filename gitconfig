@@ -23,11 +23,13 @@
 	path = ~/.gitconfig.local
 [user]
 	name = Brian van de Boogaard
-	email = Brian.vandeBoogaard@Cerner.com
+	email = brian.vandeboogaard@homebot.ai
 	signingkey = 22A9C0F368840796
 [hub]
 	host = github.cerner.com
 [gpg]
 	program = gpg
 [commit]
-	gpgsign = true
+	gpgsign = false
+[url "https://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:@github.com/"]
+	insteadOf = https://github.com/

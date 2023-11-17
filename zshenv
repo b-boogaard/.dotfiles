@@ -2,12 +2,13 @@
 export ARCHFLAGS="-arch x86_64"
 export GOPATH=$HOME/go
 export GRADLE_HOME=$HOME/bin/gradle-2.9
+export LANGUAGE="en_US:en",
 export LANG=en_US.UTF-8
 export MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=512m"
 export NODE_PATH=/usr/local/bin/node
 export NODE_PATH=/usr/local/lib/jsctags:$NODE_PATH
 export PKG_CONFIG_PATH="/usr/local/opt/imagemagick@6/lib/pkgconfig"
-export POWERLINE_HOME=$HOME/.pyenv/versions/3.8.1/lib/python3.8/site-packages
+export POWERLINE_HOME=/usr/local/lib/python3.11/site-packages
 export PYENV_ROOT=$HOME/.pyenv
 export SCALA_HOME=/usr/local/share/scala
 export SOLARIZED_THEME=dark
@@ -15,6 +16,8 @@ export SSH_KEY_PATH=$HOME/.ssh/id_rsa
 export TERM=xterm-256color
 export ZGEN_HOME=$HOME/.zgen
 export ZSH_THEME="blinks"
+export GITHUB_TOKEN=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
+export HOMEBREW_GITHUB_API_TOKEN=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
 
 # bin paths
 export PATH=$HOME/.cargo/bin:$PATH
